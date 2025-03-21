@@ -1,11 +1,10 @@
 import { createReadStream } from "fs";
 
-import parse from "../src/parser"; 
+import run from "../src/main"; 
 
 async function runner() {
 	const stream = createReadStream("tests/hello_world/hello_world.mdlang", { encoding: "utf8" });
-	const ast = await parse(stream);
-	console.log("ast", ast);
+	await run(stream);
 }
 
 runner();
